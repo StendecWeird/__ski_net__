@@ -8,6 +8,9 @@ namespace Core.Specifications
 
         public IList<Expression<Func<T, object>>> Includes { get; } = new List<Expression<Func<T, object>>>();
 
+        public Expression<Func<T, object>>? OrderBy { get; private set; }
+
+        public Expression<Func<T, object>>? OrderByDescending { get; private set; }
 
         public SpecificationBase()
         {
@@ -19,5 +22,8 @@ namespace Core.Specifications
         }
 
         protected void AddInclude(Expression<Func<T, object>> include) => Includes.Add(include);
+
+        protected void SetOrderBy(Expression<Func<T, object>> orderBy) => OrderBy = orderBy;
+        protected void SetOrderByDescending(Expression<Func<T, object>> orderByDesc) => OrderByDescending = orderByDesc;
     }
 }
