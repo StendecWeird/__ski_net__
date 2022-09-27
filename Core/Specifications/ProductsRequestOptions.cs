@@ -6,8 +6,15 @@ namespace Core.Specifications
         public int? TypeId { get; set; }
         public int? BrandId { get; set; }
 
+        private string? _search;
+        public string? Search
+        {
+            get => _search;
+            set => _search = value?.ToLower();
+        }
+
         private const int MinPageIndex = 1;
-        private int _pageIndex;
+        private int _pageIndex = MinPageIndex;
         public int PageIndex
         {
             get => _pageIndex;

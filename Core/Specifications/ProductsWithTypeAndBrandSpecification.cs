@@ -5,7 +5,8 @@ namespace Core.Specifications
     public class ProductsWithTypeAndBrandSpecification : SpecificationBase<Product>
     {
         public ProductsWithTypeAndBrandSpecification(ProductsRequestOptions requestOptions)
-         : base(x => 
+         : base(x =>
+            (string.IsNullOrEmpty(requestOptions.Search) || x.Name.ToLower().Contains(requestOptions.Search)) &&
             (!requestOptions.TypeId.HasValue || x.ProductTypeId == requestOptions.TypeId) &&
             (!requestOptions.BrandId.HasValue || x.ProductBrandId == requestOptions.BrandId))
         {
