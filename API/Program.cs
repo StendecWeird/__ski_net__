@@ -17,14 +17,14 @@ await app.InitTestDatabaseAsync();
 // Configure the HTTP request pipeline.
 
 app.UseMiddleware<ExceptionHandlerMiddleware>();
+app.UseStatusCodePagesWithRedirects("/error/{0}");
+app.UseCors("CorsPolicy");
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseStatusCodePagesWithRedirects("/error/{0}");
 
 app.UseHttpsRedirection();
 

@@ -34,6 +34,13 @@ namespace API.Extensions
                 };
             });
 
+            services.AddCors(options => options.AddPolicy(
+                "CorsPolicy", 
+                policyBuilder => policyBuilder.AllowAnyHeader()
+                                              .AllowAnyMethod()
+                                              .WithOrigins("https://localhost:4200")
+            ));
+
             return services;
         }
     }
