@@ -1,0 +1,10 @@
+<header>
+    <span *ngIf="hasResults()">
+        Showing
+        <strong>
+            {{ getFirstNumberOnPage() }} - {{ getLastNumberOnPage() }}
+        </strong> of
+        <strong>{{ totalCount }}</strong> Results
+    </span>
+    <span *ngIf="hasResults() === false">There is <strong>0</strong> result for this filters.</span>
+</header>

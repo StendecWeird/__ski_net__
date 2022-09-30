@@ -29,7 +29,7 @@ namespace API.Controllers
         {
             var product = _context.Products.Find(42);
 
-            var desc = product.Description;
+            var desc = product!.Description;
 
             return Ok(desc);
         }
